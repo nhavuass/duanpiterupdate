@@ -801,19 +801,3 @@ video {
 .resend-text-link:hover {
     text-decoration: underline; /* Gạch chân nhẹ khi di chuột vào */
 }
-/* ========================================== */
-/* CẤU HÌNH LOGO LUÔN HIỂN THỊ CỐ ĐỊNH        */
-/* ========================================== */
-
-.always-visible-logo {
-    position: fixed;   /* Cố định vị trí trên màn hình */
-    top: 20px;         /* Khoảng cách từ cạnh trên màn hình */
-    left: 20px;        /* Khoảng cách từ cạnh trái màn hình */
-    z-index: 9999;     /* Đảm bảo luôn nổi lên trên cùng các lớp khác */
-}
-
-.always-visible-logo img {
-    width: 120px;      /* Chiều rộng của logo */
-    height: auto;      /* Tự động chỉnh chiều cao theo tỷ lệ */
-    display: block;
-}
