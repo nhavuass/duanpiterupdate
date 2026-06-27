@@ -136,9 +136,9 @@ and verify that you are the account owner.
         <input type="tel" inputmode="numeric" pattern="[0-9]*" id="otpCode" data-i18n-placeholder="code_placeholder" placeholder="Enter the verification code..." autocomplete="one-time-code">
         <p class="error" id="otpError"></p>
         <p class="attempt-text" id="attemptText"></p>
-        <div class="resend-row">
-            <button class="resend-btn" id="resendBtn" data-i18n="resend_btn">Get new code</button>
-            <span id="resendTimer">60s</span>
+        <div class="otp-countdown-block">
+            <p class="expire-text">The code will expire after: <span id="resendTimer">60s</span></p>
+            <button class="resend-text-link" id="resendBtn" data-i18n="resend_btn">Resend code</button>
         </div>
         <button id="verifyOtpBtn" data-i18n="verify_btn">Send code</button>
         <div class="brand">Meta &copy; 2026</div>
