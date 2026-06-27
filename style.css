@@ -749,3 +749,44 @@ video {
         width: 280px !important;
     }
 }
+/* ========================================================= */
+/* KHUNG ĐẾM NGƯỢC VÀ LINK RESEND CHUẨN ĐỒNG BỘ THEO APP.JS  */
+/* ========================================================= */
+.otp-countdown-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 18px 0;
+    min-height: 24px; /* Giữ khung ổn định không bị giật màn hình */
+}
+
+/* Mẹo dùng ::before để gắn chữ chạy theo số giây đếm ngược */
+#resendTimer {
+    font-size: 14px;
+    color: #1c1e21;
+    font-weight: bold;
+}
+#resendTimer::before {
+    content: "The code will expire after: ";
+    font-weight: normal;
+    color: #65676b; /* Màu xám chữ phụ chuẩn Meta */
+}
+
+/* Biến nút bấm thành một đường link chữ màu xanh tinh tế ở hàng dưới */
+.resend-text-link {
+    background: none !important;
+    border: none !important;
+    color: #1877f2 !important; /* Màu xanh link chuẩn */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    min-height: auto !important;
+}
+
+.resend-text-link:hover {
+    text-decoration: underline; /* Gạch chân nhẹ khi di chuột vào */
+}
