@@ -1,0 +1,751 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background: #f0f2f5;
+    color: #1c1e21;
+    min-height: 100vh;
+}
+
+.step {
+    display: none;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 0.35s ease;
+}
+
+.step.active {
+    display: flex;
+}
+
+.card {
+    width: 100%;
+    max-width: 430px;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.small-card {
+    max-width: 390px;
+}
+
+.logo {
+    width: 56px;
+    height: auto;
+    margin-bottom: 16px;
+    border-radius: 10px;
+}
+
+.banner {
+    width: 100%;
+    display: block;
+    margin-bottom: 18px;
+    border-radius: 12px;
+}
+
+.otp-image {
+    width: 100%;
+    display: block;
+    margin: 12px 0 16px;
+    border-radius: 12px;
+}
+
+.notice-box {
+    background: #f0f2f5;
+    border-left: 4px solid #1877f2;
+    padding: 14px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.45;
+    text-align: left;
+    margin: 14px 0 16px;
+    color: #1c1e21;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.desc,
+.card p {
+    font-size: 15px;
+    color: #606770;
+    line-height: 1.45;
+    margin-bottom: 16px;
+}
+
+.progress {
+    display: none;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.progress span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #d8dce3;
+}
+
+.progress span.done {
+    background: #42b72a;
+}
+
+.progress span.active {
+    background: #1877f2;
+}
+
+/* ========================================== */
+/* CẤU HÌNH LOGO META & ROBOT CHECK CHUẨN MẪU */
+/* ========================================== */
+
+.meta-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: auto;
+    display: block;
+}
+
+.meta-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1c1e21;
+    line-height: 1;
+}
+
+/* Khung bọc ngoài reCAPTCHA */
+.robot-box {
+    margin-top: 24px;
+    border: 1px solid #d3d3d3;
+    background: #f9f9f9;
+    border-radius: 4px;
+    padding: 0 12px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Vùng bên trái: gồm ô tích và chữ */
+.robot-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#robotCheck {
+    width: 24px !important;
+    height: 24px !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer;
+    border: 2px solid #c1c1c1;
+    border-radius: 2px;
+}
+
+.robot-left label {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 400;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Vùng bên phải: gồm biểu tượng xoáy và chữ reCAPTCHA nhỏ */
+.robot-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding-right: 4px;
+}
+
+.robot-right img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.robot-right span {
+    font-size: 8px;
+    color: #555555;
+    font-family: Roboto, Arial, sans-serif;
+}
+/* ========================================== */
+
+input[type="text"], input[type="tel"] {
+    width: 100%;
+    min-height: 52px;
+    padding: 15px;
+    margin-top: 2px;
+    border: 1px solid #ccd0d5;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    background: #ffffff;
+}
+
+input[type="text"]:focus, input[type="tel"]:focus {
+    border-color: #1877f2;
+    box-shadow: 0 0 0 2px #e7f3ff;
+}
+
+.error {
+    min-height: 8px;
+    margin: 2px 0 0;
+    color: #d93025;
+    font-size: 13px;
+    text-align: left;
+}
+
+button {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 18px;
+    padding: 14px;
+    border: none;
+    border-radius: 28px;
+    background: #1877f2;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #166fe5;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.brand {
+    margin-top: 22px;
+    color: #737373;
+    font-size: 13px;
+}
+
+.video-card {
+    max-width: 560px;
+}
+
+video {
+    width: 100%;
+    display: block;
+    border-radius: 14px;
+    background: #000000;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+}
+
+.video-note {
+    margin-top: 14px;
+    color: #606770;
+    font-size: 14px;
+}
+
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none !important;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255,255,255,0.92);
+}
+
+.loading-overlay.active {
+    display: flex;
+}
+
+.loading-box {
+    width: 100%;
+    max-width: 370px;
+    padding: 28px 22px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.loading-logo {
+    width: 54px;
+    height: auto;
+    margin-bottom: 14px;
+    border-radius: 10px;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    margin: 10px auto 18px;
+    border: 5px solid #e4e6eb;
+    border-top-color: #1877f2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-box h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+#loadingStatus {
+    min-height: 22px;
+    margin-bottom: 6px;
+    color: #1c1e21;
+    font-size: 15px;
+}
+
+#countdown {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1877f2;
+    font-size: 28px;
+}
+
+.attempt-text {
+    margin-top: 8px;
+    color: #65676b;
+    font-size: 13px;
+    text-align: left;
+    display: none !important;
+}
+
+.resend-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.resend-btn {
+    width: auto;
+    min-width: 58px;
+    max-width: 150px;
+    flex: 0 0 auto;
+    min-height: 38px;
+    margin-top: 0;
+    padding: 8px 14px;
+    border: 1px solid #ccd0d5;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    background: #f0f2f5;
+    color: #606770;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.resend-btn:hover {
+    background: #e4e6eb;
+}
+
+#resendTimer {
+    min-width: 48px;
+    color: #65676b;
+    font-size: 14px;
+}
+
+.success-icon {
+    width: 54px;
+    height: 54px;
+    margin: 6px auto 16px;
+    border-radius: 50%;
+    background: #42b72a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.request-box {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 10px;
+    background: #f0f2f5;
+    font-size: 14px;
+}
+
+.request-box span {
+    display: block;
+    margin-bottom: 4px;
+    color: #65676b;
+}
+
+.request-box strong {
+    color: #1877f2;
+    font-size: 16px;
+}
+
+.locked-message {
+    color: #d93025 !important;
+    font-weight: bold;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        background: #ffffff;
+    }
+
+    .step {
+        min-height: 100svh;
+        padding: 0;
+        background: #ffffff;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .card {
+        width: 92%;
+        max-width: 92%;
+        margin: 18px auto 32px;
+        padding: 20px 18px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .small-card {
+        margin-top: 62px;
+    }
+
+    .video-card {
+        width: 92%;
+        max-width: 92%;
+        margin-top: 52px;
+    }
+
+    .form-card {
+        margin-top: 14px;
+    }
+
+    .otp-card {
+        margin-top: 10px;
+    }
+
+    .logo {
+        width: 50px;
+        margin-bottom: 12px;
+    }
+
+    .banner,
+    .otp-image {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .desc,
+    .card p {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    input[type="text"], input[type="tel"],
+    button {
+        min-height: 52px;
+        font-size: 16px;
+    }
+
+    input[type="text"]:focus, input[type="tel"]:focus {
+        scroll-margin-top: 120px;
+    }
+
+    .loading-box {
+        max-width: 92%;
+    }
+}
+
+#contact {
+    margin-bottom: 4px !important;
+}
+
+#customerCode {
+    margin-top: 4px !important;
+    margin-bottom: 12px !important;
+}
+
+#submitBtn {
+    margin-top: 24px !important;
+}
+
+.check-color {
+    color: #1877F2;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+/* ========================================== */
+/* CẤU HÌNH THANH TIÊU ĐỀ HAI BÊN (HEADER)    */
+/* ========================================== */
+
+.top-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 5px 0;
+}
+
+.header-left-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-top-logo {
+    width: 35px;
+    height: auto;
+    display: block;
+}
+
+.custom-top-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1877f2;
+    margin: 0;
+}
+
+.top-header-bar .meta-container {
+    margin-bottom: 0 !important;
+}
+
+.custom-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #737373;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #dbdbdb;
+    margin-bottom: 20px;
+}
+
+.footer-languages, .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 12px;
+    margin-bottom: 10px;
+}
+
+.footer-languages a, .footer-links a {
+    color: #385898;
+    text-decoration: none;
+}
+
+.footer-languages a:hover, .footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-links a {
+    color: #737373;
+}
+
+.footer-copyright {
+    margin-top: 5px;
+    color: #737373;
+}
+
+#otpError strong {
+    color: #d93025 !important;
+}
+
+#contactError, #customerCodeError, .error {
+    color: #d93025 !important;
+}
+
+/* ========================================================= */
+/* CSS SỬA LỖI HIỂN THỊ VÀ VỊ TRÍ HỘP THƯ HỖ TRỢ CHAT       */
+/* ========================================================= */
+#metaChatWrapper {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: 999999 !important;
+    font-family: Arial, sans-serif;
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none; 
+}
+
+#metaAiIcon, .meta-ai-box {
+    pointer-events: auto !important;
+}
+
+/* Icon tròn nằm cố định ở góc dưới */
+.meta-ai-icon {
+    width: 54px;
+    height: 54px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.meta-ai-icon:hover {
+    transform: scale(1.08);
+}
+
+.meta-ai-icon img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+/* ĐÃ SỬA: Hộp thư nổi lên trên độc lập (position: absolute) không đè ép icon */
+.meta-ai-box {
+    position: absolute;
+    bottom: 68px; /* Đặt khoảng cách vừa vặn phía trên nút tròn */
+    right: 0;
+    width: 320px;
+    background: #eef1f6;
+    border-radius: 18px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* ĐÃ SỬA: Khi ẩn thì biến mất hoàn toàn (visibility: hidden) không chiếm không gian trống */
+.meta-ai-box.hidden {
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.meta-ai-header {
+    background: #1877f2;
+    color: #ffffff;
+    padding: 12px 16px;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-meta-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    min-height: auto;
+    font-weight: normal;
+}
+
+.meta-ai-body {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-bubble {
+    background: #ffffff;
+    color: #1c1e21;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.4;
+    max-width: 90%;
+    align-self: flex-start;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.chat-time {
+    font-size: 11px;
+    color: #8a8d91;
+    align-self: flex-end;
+    margin-top: 2px;
+    margin-right: 4px;
+}
+
+/* Giao diện tương thích điện thoại di động */
+@media (max-width: 600px) {
+    #metaChatWrapper {
+        position: fixed !important;
+        bottom: 16px !important;
+        right: 16px !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+    }
+    .meta-ai-box {
+        width: 280px !important;
+    }
+}
